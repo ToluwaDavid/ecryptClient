@@ -7,8 +7,7 @@ import { IChannel } from '../interface/channel';
   providedIn: 'root',
 })
 export class ChannelService {
-  private apiUrl =
-    'http://localhost:3000/https://encryptserver-fcva.onrender.com/channels';
+  private apiUrl = 'https://encryptserver-fcva.onrender.com/api/channels';
 
   constructor(private http: HttpClient) {}
 
