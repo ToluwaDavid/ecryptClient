@@ -1,0 +1,46 @@
+<div>
+  <div>
+    <nav class="navbar custom-navbar p-3 mb-5">
+      <a href="/home" class="navbar-brand text-light h6">GT-Encryption App</a>
+    </nav>
+  </div>
+
+  <div class="container mt-5 p-2">
+    <a href="/home" class="text-secondary h6"> Back to Home Page</a>
+  </div>
+
+  <!-- This div contains everyother thing  -->
+  <div class="container mt-5 p-2">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Channel Name</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let channel of channels">
+          <td scope="row">{{ channel.name }}</td>
+          <td>
+            <button
+              mat-icon-button
+              class="text-danger"
+              (click)="deleteChannel(channel.id)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+            &nbsp;
+            <button
+              mat-icon-button
+              class="text-primary"
+              [routerLink]="['/updatechannel', channel.id]"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- This is the end of the div that contains everything -->
+</div>

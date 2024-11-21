@@ -1,0 +1,38 @@
+<div>
+  <!-- Begining  -->
+  <div class="mb-5">
+    <nav class="navbar custom-navbar p-3 mb-5">
+      <a href="/home" class="navbar-brand text-light h6">GT-Encryption App</a>
+    </nav>
+  </div>
+
+  <div class="container mt-5">
+    <div class="container mt-5 p-3">
+      <a href="/home" class="text-secondary h6"> Back to Home Page</a>
+    </div>
+
+    <form [formGroup]="channelForm" (ngSubmit)="updateChannel()">
+      <div class="container mt-5">
+        <div class="form-group mt-5">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Channel name"
+            formControlName="name"
+          />
+        </div>
+        <div class="form-group mt-4">
+          <textarea
+            class="form-control"
+            rows="4"
+            formControlName="publicKey"
+          ></textarea>
+        </div>
+        <div class="form-group mt-3">
+          <button type="submit" class="btn btn-danger">Update Channel</button>
+        </div>
+      </div>
+    </form>
+    <!-- End -->
+  </div>
+</div>
