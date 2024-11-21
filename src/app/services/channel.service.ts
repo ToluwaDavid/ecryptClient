@@ -4,16 +4,16 @@ import { Observable } from 'rxjs';
 import { IChannel } from '../interface/channel';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ChannelService {
+  private apiUrl =
+    'http://localhost:3000/https://encryptserver-fcva.onrender.com/channels';
 
-  private apiUrl = 'http://localhost:3000/api/channels';
+  constructor(private http: HttpClient) {}
 
-  constructor(private http : HttpClient) { }
-
-  createChannel(channel : any) : Observable<any>{
-    return this.http.post(this.apiUrl , channel);
+  createChannel(channel: any): Observable<any> {
+    return this.http.post(this.apiUrl, channel);
   }
 
   getAllChannels(): Observable<any> {
@@ -24,7 +24,7 @@ export class ChannelService {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
-  getAChannel(id: string) : Observable<IChannel>{
+  getAChannel(id: string): Observable<IChannel> {
     return this.http.get<IChannel>(`${this.apiUrl}/${id}`);
   }
 
@@ -32,8 +32,10 @@ export class ChannelService {
     return this.http.put(`${this.apiUrl}/${id}`, channel);
   }
 
-  getPublicKey(name: string): Observable<any> {    
+  getPublicKey(name: string): Observable<any> {
     const params = new HttpParams().set('name', name); // Add the channel name as a query parameter
-    return this.http.get<{ publicKey: string }>(`${this.apiUrl}/getPublicKey`, { params }); 
+    return this.http.get<{ publicKey: string }>(`${this.apiUrl}/getPublicKey`, {
+      params,
+    });
   }
 }
